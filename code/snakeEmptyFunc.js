@@ -1,7 +1,7 @@
-var canvas = document.getElementById('game');
-var context = canvas.getContext('2d');
-var grid = 16;
-var snake = {
+let canvas = document.getElementById('game');
+let context = canvas.getContext('2d');
+let grid = 16;
+let snake = {
   x: 160,
   y: 160,
   dx: grid, //dx is the horizontal direction the snake is moving. Negative moves left, positive moves right
@@ -9,23 +9,23 @@ var snake = {
   cells: [],
   maxCells: 4
 };
-var count = 0;
-var apple = {
+let count = 0;
+let apple = {
   x: 320,
   y: 320
 };
-var keyMap = {
+let keyMap = {
 	37: {dx : -grid, dy: 0}, //left arrow
 	38: {dx : 0, dy : -grid}, //up arrow
 	39: {dx : grid, dy : 0}, //right arrow
 	40: {dx : 0, dy : grid}	//down arrow
 }
-var img = new Image();
+let img = new Image();
 img.height = grid;
 img.width = grid;
 img.src = "apple.svg";
-var score = 0;
-var directionQueue = [];
+let score = 0;
+let directionQueue = [];
 
 function getRandomInt(min, max) {
   //add your code here
@@ -70,7 +70,7 @@ snake.draw = function() {
       apple.y = getRandomInt(0, 25) * grid;
     }
     // check collision with all cells after this one (modified bubble sort)
-    for (var i = index + 1; i < snake.cells.length; i++) {
+    for (let i = index + 1; i < snake.cells.length; i++) {
       // collision. reset game
       if (cell.x === snake.cells[i].x && cell.y === snake.cells[i].y) {
         resetGame();
@@ -91,8 +91,6 @@ function loop() {
   if (directionQueue.length){
     snake.handleDirectionChange();
   }
-  snake.x += snake.dx;
-  snake.y += snake.dy;
 
   snake.move();
   handleWallHit();
