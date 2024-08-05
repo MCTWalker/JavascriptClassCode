@@ -15,10 +15,10 @@ let apple = {
   y: 320
 };
 let keyMap = {
-	37: {dx : -grid, dy: 0}, //left arrow
-	38: {dx : 0, dy : -grid}, //up arrow
-	39: {dx : grid, dy : 0}, //right arrow
-	40: {dx : 0, dy : grid}	//down arrow
+	"ArrowLeft": {dx : -grid, dy: 0}, //left arrow
+	"ArrowUp": {dx : 0, dy : -grid}, //up arrow
+	"ArrowRight": {dx : grid, dy : 0}, //right arrow
+	"ArrowDown": {dx : 0, dy : grid}	//down arrow
 }
 let img = new Image();
 img.height = grid;
